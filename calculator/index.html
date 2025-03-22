@@ -1,0 +1,986 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page Title -->
+    <title>Techrealm|Our Services</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+    <!-- Config -->
+    <link type="text/css" rel="stylesheet" href="css/config.css">
+    <!-- Libraries -->
+    <link type="text/css" rel="stylesheet" href="css/libs.css">
+    <!-- Template Styles -->
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <!-- Responsive -->
+    <link type="text/css" rel="stylesheet" href="css/responsive.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" sizes="32x32">
+    <style>
+    #bringer-header{
+background-color: aliceblue;
+    }
+    .bringer-header-inner{
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 70px;
+        background-color: aliceblue;
+    }
+    .main-menu li a{
+        color: rgb(250, 250, 250);
+    }
+        .bringer-header-rp{
+            background-color: black;
+            border-radius: 8px;
+
+        }
+        .bringer-logo h2{
+            font-size: 25px;
+            color: black;
+
+        }
+        h2 span{
+            color: rgb(78, 78, 78);
+        }
+        .sub-menu{
+            background-color: white;
+        }
+       .bringer-small-text ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+       .bringer-small-text li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+       .bringer-small-text li:before {
+            content: "•";
+            color: #3498db;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+       
+
+        /* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+}
+
+/* FAQ Container */
+.influence-faq-container {
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  opacity: 0;
+  animation: fadeIn 300ms ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.influence-faq-container h2 {
+    padding:10px 0px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 40px;
+  color: #ffffff;
+}
+
+/* FAQ List */
+.influence-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* FAQ Item */
+.influence-faq-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* FAQ Question */
+.influence-faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.influence-faq-question h4 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.influence-highlight {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* Toggle Button */
+.influence-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e0f2fe;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  position: relative;
+}
+
+.influence-icon {
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.influence-icon-plus::before,
+.influence-icon-plus::after {
+  content: "";
+  position: absolute;
+  background-color: #3b82f6;
+}
+
+.influence-icon-plus::before {
+  width: 14px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.influence-icon-plus::after {
+  width: 2px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.influence-icon-minus::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 2px;
+  background-color: #3b82f6;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.influence-icon-minus {
+  opacity: 0;
+}
+
+/* FAQ Answer */
+.influence-faq-answer {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.influence-faq-answer p {
+  padding: 16px;
+  color: #ffffff;
+}
+
+/* Active States */
+
+
+.influence-faq-item.active .influence-icon-plus {
+  opacity: 0;
+}
+
+.influence-faq-item.active .influence-icon-minus {
+  opacity: 1;
+}
+
+.influence-faq-item.active .influence-faq-answer {
+  max-height: 500px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .influence-faq-container {
+    padding: 20px;
+  }
+
+  .influence-faq-question h4 {
+    font-size: 16px;
+  }
+}
+
+.services-list {
+    text-align: start;
+            list-style: none;
+            padding: 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .services-list li {
+            padding: 10px;
+            position: relative;
+            font-size: 16px;
+            color: #ffffff;
+            list-style: none;
+            text-decoration: none;
+        }
+        .services-list li:last-child {
+            border-bottom: none;
+        }
+        .services-list li::before {
+            content: "✔";
+            color: #1277e2;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .re-body {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .re-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
+        }
+        
+        .re-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .re-subtitle {
+            text-align: center;
+            color: #cccccc;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .re-challenges-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .re-challenge-box {
+            border-left: 4px solid #008cff;
+            padding: 15px;
+            background-color: #111111;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+        }
+        
+        .re-challenge-heading {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #008cff;
+            font-size: 18px;
+        }
+        
+        .re-challenge-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            .re-challenges-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .re-challenge-box {
+                max-width: 100%;
+            }
+            
+            .re-title {
+                font-size: 24px;
+            }
+            
+            .re-subtitle {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+        }
+        
+        /* Animation for cards */
+        @keyframes re-fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .re-challenge-box {
+            animation: re-fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .re-challenge-box:nth-child(1) { animation-delay: 0.1s; }
+        .re-challenge-box:nth-child(2) { animation-delay: 0.2s; }
+        .re-challenge-box:nth-child(3) { animation-delay: 0.3s; }
+        .re-challenge-box:nth-child(4) { animation-delay: 0.4s; }
+
+
+        form {
+            margin: 0 auto;
+            max-width: 360px;
+        }
+        input {
+            background: #efefef;
+            border: 0.2rem solid #bbb;
+            box-sizing: border-box;
+            font-size: 2rem;
+            padding: 1rem;
+            text-align: center;
+            width: 100%;
+        }
+        button {
+            margin-top:20px;
+            margin-bottom:20px;
+            background: #2196f3;
+            border: 0.2rem solid transparent;
+            color: #fefefe;
+            cursor: pointer;
+            font-size: 2rem;
+            padding: 1rem;
+            text-align: center;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #37a1f8;
+        }
+        button:active {
+            background-color: #1485e1;
+        }
+        #keypad {
+            background-color: #2196f3;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 0.5rem;
+        }
+        #keypad p {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 0.2rem solid transparent;
+            cursor: pointer;
+            font-size: 2rem;
+            margin: 0.2rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        #keypad p:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        #keypad p:active {
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        #keypad p[data-value="clear"] {
+            font-size: 140%;
+            line-height: 160%;
+        }
+        #keypad p[data-value="back"] {
+            font-size: 280%;
+            line-height: 70%;
+        }
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 5px solid #2196f3;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loader-text {
+            color: white;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 800px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 20px;
+    left: -200px; /* Adjust this to center the dropdown */
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+.dropdown-section {
+    flex: 1;
+    padding: 0 15px;
+    border-right: 1px solid #eee;
+}
+
+.dropdown-section:last-child {
+    border-right: none;
+}
+
+.dropdown-section h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.dropdown-section ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.dropdown-section ul li {
+    padding: 5px 0;
+}
+
+.dropdown-section ul li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+
+.dropdown-section ul li a:hover {
+    color: #007bff;
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="bringer-header" class="is-frosted is-sticky" data-appear="fade-down" data-unload="fade-up">
+        <!-- Desktop Header -->
+        <div class="bringer-header-inner">
+            <!-- Header Logo -->
+            <div class="bringer-header-lp">
+                <a href="./" class="bringer-logo">
+                   <h2>Tech <span>Realm</span></h2>
+                </a>
+            </div>
+            <!-- Main Menu -->
+            <div class="bringer-header-mp">
+                <nav class="bringer-nav">
+                    <ul class="main-menu" data-stagger-appear="fade-down" data-stagger-delay="75">
+                        <li>
+                            <a href="#" style="color: black;">Home</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="index.html">Home 01</a>
+                                </li>
+                                <li>
+                                    <a href="home02.html">Home 02</a>
+                                </li>
+                                <li>
+                                    <a href="home03.html">Home 03</a>
+                                </li>
+                                <li>
+                                    <a href="home04.html">Home 04</a>
+                                </li>
+                                <li>
+                                    <a href="home05.html">Home 05</a>
+                                </li>
+                                <li>
+                                    <a href="home06.html">Home 06</a>
+                                </li>
+                                <li>
+                                    <a href="home07.html">Home 07</a>
+                                </li>
+                                <li>
+                                    <a href="home08.html">Home 08</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" style="color: rgb(15, 15, 15);">About Us</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="about-us.html">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="about-me.html">About Me</a>
+                                </li>
+                                <li>
+                                    <a href="team-member.html">Team Member</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="current-menu-parent">
+                            <a href="#" style="color: rgb(7, 7, 7);">Pages</a>
+                            <ul class="sub-menu">
+                                <li class="current-menu-item">
+                                    <a href="services.html" style="color:rgb(255, 255, 255);">Our Services</a>
+                                </li>
+                                <li>
+                                    <a href="service-details.html">Service Details</a>
+                                </li>
+                                <li>
+                                    <a href="pricing.html">Pricing</a>
+                                </li>
+                                <li>
+                                    <a href="faq.html">F.A.Q.</a>
+                                </li>
+                                <li>
+                                    <a href="testimonials.html">Testimonials</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" style="color: rgb(7, 7, 7);">Portfolio</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="portfolio-infinite-list.html">Infinite List</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-slider.html">Slider</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-column.html">Column Cards</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-grid.html">Classic Grid</a>
+                                </li>
+                                <li class="bringer-menu-divider"></li>
+                                <li>
+                                    <a href="portfolio-post01.html">Portfolio Details 01</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-post02.html">Portfolio Details 02</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-post03.html">Portfolio Details 03</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="contacts.html" style="color: black;">Contacts</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Header Button -->
+            <div class="bringer-header-rp">
+                <a href="contacts.html" class="bringer-button">FREE Quote</a>
+            </div>
+        </div>
+        <!-- Mobile Header -->
+        <div class="bringer-mobile-header-inner">
+            <a href="./" class="bringer-logo">
+                <img src="images/logo.png" alt="bringer." width="88" height="24">
+            </a>
+            <a href="#" class="bringer-mobile-menu-toggler">
+                <i class="bringer-menu-toggler-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </i>
+            </a>
+        </div>
+    </div>
+    </header>
+
+    <!-- Page Main -->
+    <main id="bringer-main">
+        <form action="javascript:void(0);" name="keypad" method="post" class="center-text" onload="emptyCode();">
+            <p id="message" class="success">ENTER AMOUNT IN AED</p>
+    
+            <input type="text" name="code" value="" maxlength="6" readonly="readonly">
+            <!-- Removing the conversion display -->
+    
+            <div id="keypad" class="mobile-full tablet-full">
+                <p data-value="1">1</p>
+                <p data-value="2">2</p>
+                <p data-value="3">3</p>
+                <p data-value="4">4</p>
+                <p data-value="5">5</p>
+                <p data-value="6">6</p>
+                <p data-value="7">7</p>
+                <p data-value="8">8</p>
+                <p data-value="9">9</p>
+                <p data-value="clear">clr</p>
+                <p data-value="0">0</p>
+                <p data-value="back">&laquo;</p>
+            </div>
+            <!--Change the button's data-value attr to "submit" for form submission-->
+            <button data-value="submit">Submit</button>
+        </form>
+    
+        <!-- Add this right before the closing body tag -->
+        <div class="loader-overlay" id="loaderOverlay">
+            <div style="text-align: center;">
+                <div class="loader"></div>
+                <div class="loader-text">Processing Payment...</div>
+            </div>
+        </div><!-- .stg-container -->
+
+        <!-- Footer -->
+        <footer id="bringer-footer" data-appear="fade-up" data-unload="fade-down">
+            <!-- Footer Widgets Area -->
+            <div class="bringer-footer-widgets">
+                <div class="stg-container">
+                    <div class="stg-row" data-stagger-appear="fade-left" data-stagger-delay="100">
+                        <div class="stg-col-5 stg-tp-col-12 stg-tp-bottom-gap-l">
+                            <div class="bringer-info-widget">
+                                <a href="./" class="bringer-logo footer-logo">
+                                <h2 style="color: aliceblue;">Tech <span style="color: rgb(134, 133, 133);">Realm</span></h2>
+                                </a>
+                                <div class="bringer-info-description">We are a passionate team of developers and designers who believe in the power of creativity. We help creative people create a strong online presence that shows their work and tells a story.</div>
+                                <span class="bringer-label">Follow us:</span>
+                                <ul class="bringer-socials-list" data-stagger-appear="fade-up" data-stagger-delay="75">
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-facebook">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-instagram">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-x">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-tiktok">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-patreon">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="stg-col-2 stg-offset-1 stg-tp-col-4 stg-m-col-4">
+                            <div class="bringer-widget">
+                                <h6>Services</h6>
+                                <div class="bringer-menu-widget">
+                                    <ul>
+                                        <li><a href="service-details.html">Branding</a></li>
+                                        <li><a href="service-details.html">Marketing</a></li>
+                                        <li><a href="service-details.html">Graphic Design</a></li>
+                                        <li><a href="service-details.html">Web Design</a></li>
+                                        <li><a href="service-details.html">Content Creation</a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- .bringer-widget -->
+                        </div>
+                        <div class="stg-col-2 stg-tp-col-4 stg-m-col-4">
+                            <div class="bringer-widget">
+                                <h6>About Us</h6>
+                                <div class="bringer-menu-widget">
+                                    <ul>
+                                        <li><a href="about-us.html">About Us</a></li>
+                                        <li><a href="about-me.html">About Me</a></li>
+                                        <li><a href="team-member.html">Our Team</a></li>
+                                        <li><a href="testimonials.html">Testimonials</a></li>
+                                        <li><a href="contacts.html">Get in Touch</a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- .bringer-widget -->
+                        </div>
+                        <div class="stg-col-2 stg-tp-col-4 stg-m-col-4">
+                            <div class="bringer-widget">
+                                <h6>Resources</h6>
+                                <div class="bringer-menu-widget">
+                                    <ul>
+                                        <li><a href="pricing.html">Pricing</a></li>
+                                        <li><a href="faq.html">Help Center</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="#">Terms of Use</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- .bringer-widget -->
+                        </div>
+                    </div><!-- .stg-row -->
+                </div><!-- .stg-container -->
+            </div><!-- .bringer-footer-widgets -->
+
+            <!-- Footer Copyright Line -->
+            <div class="bringer-footer-line stg-container">
+                <div class="align-center">
+                    Copyright © 2024. All Rights Reserved.
+                </div>
+            </div><!-- bringer-footer-line -->
+        </footer>
+	</main>
+
+    <!-- Right Click Protection Block -->
+    <div class="bringer-rcp-wrap">
+        <div class="bringer-rcp-overlay"></div>
+        <div class="bringer-rcp-container">
+            <h2>The context menu is not allowed on this page.</h2>
+        </div>
+    </div>
+
+    <!-- Dynamic Backlight -->
+    <div class="bringer-backlight"></div>
+
+    <!-- JS Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/libs.js"></script>
+    <script src="js/contact_form.js"></script>
+    <script src="js/st-core.js"></script>
+    <script src="js/classes.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+  // Get all FAQ items
+  const faqItems = document.querySelectorAll(".influence-faq-item")
+
+  // Add click event to each FAQ question
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".influence-faq-question")
+
+    question.addEventListener("click", () => {
+      // Check if current item is already active
+      const isActive = item.classList.contains("active")
+
+      // Close all items
+      faqItems.forEach((faqItem) => {
+        faqItem.classList.remove("active")
+      })
+
+      // If clicked item wasn't active, open it
+      if (!isActive) {
+        item.classList.add("active")
+      }
+    })
+  })
+
+  // Apply animation timing from data attribute
+  const faqContainer = document.querySelector(".influence-faq-container")
+  if (faqContainer) {
+    const timing = faqContainer.getAttribute("data-timing")
+    if (timing) {
+      const style = document.createElement("style")
+      style.textContent = `
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(10px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                
+                .influence-faq-container {
+                    animation-duration: ${timing}ms;
+                }
+            `
+      document.head.appendChild(style)
+    }
+  }
+})
+
+document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.re-challenge-box');
+            
+            // Add hover effect
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 5px 15px rgba(0, 170, 255, 0.2)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 2px 5px rgba(255, 255, 255, 0.1)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+            });
+            
+            // Make sure animations play when elements are in viewport
+            function checkVisibility() {
+                cards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const isVisible = (
+                        rect.top >= 0 &&
+                        rect.left >= 0 &&
+                        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                    );
+                    
+                    if (isVisible) {
+                        card.style.opacity = '1';
+                    }
+                });
+            }
+            
+            // Check visibility on load and scroll
+            window.addEventListener('scroll', checkVisibility);
+            checkVisibility();
+        });
+
+
+        document.addEventListener("click", function(event) {
+            if (event.target.getAttribute("data-value")) {
+                var val = event.target.getAttribute("data-value");
+                switch (val) {
+                    case "submit":
+                        submitForm();
+                        return;
+                    case "clear":
+                        emptyCode();
+                        return;
+                        break;
+                    case "back":
+                        backSpace();
+                        return;
+                        break;
+                    default:
+                        addCode(val);
+                        break;
+                }
+            }
+        }, false);
+
+        function addCode(key) {
+            var maxlength = 6;
+            var code = document.forms[0].code;
+            if (code.value.length < maxlength) {
+                let currentValue = code.value.replace('.', '') || '0';
+                currentValue = currentValue + key;
+                const numericValue = parseInt(currentValue);
+                code.value = (numericValue / 100).toFixed(2);
+            }
+        }
+
+        function backSpace() {
+            var code = document.forms[0].code;
+            if (code.value.length > 0) {
+                let currentValue = code.value.replace('.', '');
+                currentValue = currentValue.slice(0, -1) || '0';
+                const numericValue = parseInt(currentValue);
+                code.value = (numericValue / 100).toFixed(2);
+            }
+        }
+
+        function emptyCode() {
+            document.forms[0].code.value = "0.00";
+        }
+
+        // Call emptyCode when page loads
+        window.onload = emptyCode;
+
+        async function submitForm() {
+            document.getElementById('loaderOverlay').style.display = 'flex';
+
+            const displayAmount = parseFloat(document.forms[0].code.value) || 0;
+            const amount = Math.round(displayAmount * 100);
+            
+            if (amount < 100) {
+                document.getElementById('loaderOverlay').style.display = 'none';
+                alert('Minimum amount is 1 AED');
+                return;
+            }
+
+            try {
+                const response = await fetch('https://pay.techrealm.pk/create-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ amount: amount })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Payment request failed');
+                }
+
+                const data = await response.json();
+                
+                if (data.payment_url) {
+                    if (data.special_reference) {
+                        localStorage.setItem('payment_reference', data.special_reference);
+                    }
+                    window.location.href = data.payment_url;
+                } else {
+                    throw new Error('Payment URL not found in response');
+                }
+            } catch (error) {
+                // Hide loader on error
+                document.getElementById('loaderOverlay').style.display = 'none';
+                console.error('Payment error:', error);
+                alert('Payment request failed. Please try again.');
+            }
+        }
+    </script>
+
+</body></html>

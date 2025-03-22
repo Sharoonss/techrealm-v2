@@ -1,0 +1,1355 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loaded #loader-wrapper {
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+
+        /* Base Styles */
+:root {
+    --background-dark: #121212;
+    --background-light: #1e1e1e;
+    --background-lighter: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-tertiary: #808080;
+    --accent-color: #5422eb;
+    --accent-hover: #440ff5;
+    --border-color: #333333;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    color: var(--text-primary);
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--background-lighter);
+    border-top: 5px solid var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Header */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.site-header.scrolled {
+    padding: 10px 0;
+    background-color: rgba(18, 18, 18, 0.98);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.main-nav ul {
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 30px;
+}
+
+.main-nav a {
+    font-weight: 500;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.main-nav a:hover::after,
+.main-nav .active a::after {
+    width: 100%;
+}
+
+.nav-toggle, .search-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.search-toggle i {
+    font-size: 18px;
+}
+
+/* Search Overlay */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.98);
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.search-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-form-container {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.search-form {
+    display: flex;
+    width: 100%;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    background-color: var(--background-lighter);
+    color: var(--text-primary);
+    font-size: 16px;
+}
+
+.search-form button {
+    padding: 0 20px;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+/* Hero Section */
+.hero-section {
+    height: 600px;
+    background-image: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.9)), url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+/* Section Styles */
+section {
+    padding: 80px 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.view-all {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.view-all i {
+    margin-left: 5px;
+    transition: var(--transition);
+}
+
+.view-all:hover i {
+    transform: translateX(5px);
+}
+
+/* Posts Grid */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.posts-grid.three-columns {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.post {
+    background-color: var(--background-light);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--card-shadow);
+}
+
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.featured-post {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.featured-post .post-thumbnail {
+    height: 100%;
+}
+
+.featured-post .post-thumbnail img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-thumbnail {
+    position: relative;
+    overflow: hidden;
+}
+
+.post-thumbnail img {
+    transition: var(--transition);
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.post:hover .post-thumbnail img {
+    transform: scale(1.05);
+}
+
+.post-category {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1;
+}
+
+.post-category a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.post-content {
+    padding: 20px;
+}
+
+.post-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.featured-post .post-title {
+    font-size: 24px;
+}
+
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 14px;
+    color: var(--text-tertiary);
+    margin-bottom: 15px;
+}
+
+.post-meta i {
+    margin-right: 5px;
+}
+
+.post-excerpt {
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+}
+
+.read-more {
+    font-weight: 600;
+    color: var(--accent-color);
+    display: inline-flex;
+    align-items: center;
+}
+
+.read-more i {
+    margin-left: 5px;
+    transition: var(--transition);
+}
+
+.read-more:hover i {
+    transform: translateX(5px);
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    background-color: var(--background-lighter);
+    text-align: center;
+}
+
+.newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-content h2 {
+    margin-bottom: 15px;
+}
+
+.newsletter-content p {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--background-light);
+    color: var(--text-primary);
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--background-light);
+    padding: 80px 0 20px;
+}
+
+.footer-widgets {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.widget-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.widget-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.about-widget p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--background-lighter);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+}
+
+.widget-list li {
+    margin-bottom: 10px;
+}
+
+.widget-list a {
+    color: var(--text-secondary);
+}
+
+.widget-list a:hover {
+    color: var(--accent-color);
+}
+
+.recent-posts li {
+    margin-bottom: 15px;
+}
+
+.recent-posts a {
+    display: block;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.post-date {
+    font-size: 12px;
+    color: var(--text-tertiary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-tertiary);
+    font-size: 14px;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 99;
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .posts-grid.three-columns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-widgets {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-inner {
+        position: relative;
+    }
+    
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--background-light);
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: var(--transition);
+    }
+    
+    .main-nav.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+    }
+    
+    .main-nav li {
+        margin: 0 0 15px 0;
+    }
+    
+    .nav-toggle, .search-toggle {
+        display: block;
+    }
+    
+    .nav-toggle {
+        width: 30px;
+        height: 20px;
+        position: relative;
+    }
+    
+    .nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--text-primary);
+        position: absolute;
+        transition: var(--transition);
+    }
+    
+    .nav-toggle span:nth-child(1) {
+        top: 0;
+    }
+    
+    .nav-toggle span:nth-child(2) {
+        top: 9px;
+    }
+    
+    .nav-toggle span:nth-child(3) {
+        top: 18px;
+    }
+    
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+    
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 9px;
+    }
+    
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    
+    .featured-post {
+        grid-column: span 2;
+        grid-template-columns: 1fr;
+    }
+    
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .posts-grid.three-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-widgets {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 800px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 20px;
+    left: -200px; /* Adjust this to center the dropdown */
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+.dropdown-section {
+    flex: 1;
+    padding: 0 15px;
+    border-right: 1px solid #eee;
+}
+
+.dropdown-section:last-child {
+    border-right: none;
+}
+
+.dropdown-section h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.dropdown-section ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.dropdown-section ul li {
+    padding: 5px 0;
+}
+
+.dropdown-section ul li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+
+.dropdown-section ul li a:hover {
+    color: #007bff;
+}
+    </style>
+    <!-- Page Title -->
+    <title>Techrealm | Contact </title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Config -->
+    <link type="text/css" rel="stylesheet" href="css/config.css">
+    <!-- Libraries -->
+    <link type="text/css" rel="stylesheet" href="css/libs.css">
+    <!-- Template Styles -->
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <!-- Responsive -->
+    <link type="text/css" rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" sizes="32x32">
+</head>
+<body>
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+    </div>
+     <!-- Header -->
+     <header id="bringer-header" class="is-frosted is-sticky" data-appear="fade-down" data-unload="fade-up">
+        <!-- Desktop Header -->
+        <div class="bringer-header-inner">
+            <!-- Header Logo -->
+            <div class="bringer-header-lp">
+                <a href="./" class="bringer-logo">
+                  <h2 style="font-size:30px;">Tech<span style="color:rgb(78, 119, 253);">Realm</span></h2> 
+                </a>
+            </div>
+            <!-- Main Menu -->
+            <div class="bringer-header-mp">
+                <nav class="bringer-nav">
+                    <ul class="main-menu" data-stagger-appear="fade-down" data-stagger-delay="75">
+                        <li class="current-menu-parent">
+                            <a href="/index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="/about/about.html">About Us</a>
+                        </li>
+                        <li>
+                            <a href="/services/service.html">Our Services</a>
+                        </li>
+                        <li>
+                            <a href="/portfolio/folio.html">Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="/contact/contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Header Button -->
+            <div class="bringer-header-rp">
+                <a href="https://wa.me/923461115757?text=Directly%20Contact%20our%20CEO%21" class="bringer-button">Get a FREE Quote</a>
+            </div>
+        </div>
+        <!-- Mobile Header -->
+        <div class="bringer-mobile-header-inner">
+            <a href="./" class="bringer-logo">
+                <h2 style="font-size:30px;">Tech<span style="color:rgb(78, 119, 253);">Realm</span></h2> 
+            </a>
+            <a href="#" class="bringer-mobile-menu-toggler">
+                <i class="bringer-menu-toggler-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Page Main -->
+    <main id="bringer-main">
+       
+    <!-- Search Overlay -->
+    <div class="search-overlay">
+        <div class="container">
+            <div class="search-form-container">
+                <form class="search-form">
+                    <input type="text" placeholder="Search for articles...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+                <div class="search-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Explore the Depths of Knowledge</h1>
+                <p>Illuminating ideas in a sea of darkness. Dive into thought-provoking articles on technology, design, and digital culture.</p>
+                <a href="blog.html" class="btn btn-primary">Start Reading</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Posts -->
+    <section class="featured-posts">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Articles</h2>
+                <a href="blog.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="posts-grid">
+                <article class="post featured-post">
+                    <div class="post-thumbnail">
+                        <a href="post.html">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="The Future of AI">
+                        </a>
+                        <div class="post-category">
+                            <a href="category.html">Technology</a>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title"><a href="post.html">The Future of AI: How Machine Learning is Reshaping Our World</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> March 15, 2024</span>
+                            <span class="post-author"><i class="far fa-user"></i> By Alex Morgan</span>
+                        </div>
+                        <div class="post-excerpt">
+                            <p>Artificial intelligence is no longer a concept of the future—it's here, transforming industries and everyday life in ways we're only beginning to understand...</p>
+                        </div>
+                        <a href="post.html" class="read-more">Continue Reading <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="post">
+                    <div class="post-thumbnail">
+                        <a href="post.html">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Web Development Trends">
+                        </a>
+                        <div class="post-category">
+                            <a href="category.html">Development</a>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title"><a href="post.html">5 Web Development Trends That Will Dominate 2024</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> March 10, 2024</span>
+                            <span class="post-author"><i class="far fa-user"></i> By Jamie Chen</span>
+                        </div>
+                        <div class="post-excerpt">
+                            <p>The web development landscape continues to evolve at a rapid pace. Here are the trends that will shape how we build for the web this year...</p>
+                        </div>
+                        <a href="post.html" class="read-more">Continue Reading <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="post">
+                    <div class="post-thumbnail">
+                        <a href="post.html">
+                            <img src="https://images.unsplash.com/photo-1523726491678-bf852e717f6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="UX Design Principles">
+                        </a>
+                        <div class="post-category">
+                            <a href="category.html">Design</a>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title"><a href="post.html">Essential UX Design Principles Every Designer Should Know</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> March 5, 2024</span>
+                            <span class="post-author"><i class="far fa-user"></i> By Sam Taylor</span>
+                        </div>
+                        <div class="post-excerpt">
+                            <p>Creating intuitive, user-friendly experiences is more important than ever. These fundamental UX principles will help you design interfaces that users love...</p>
+                        </div>
+                        <a href="post.html" class="read-more">Continue Reading <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Posts -->
+    <section class="latest-posts">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest Articles</h2>
+                <a href="blog.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="posts-grid three-columns">
+                <article class="post">
+                    <div class="post-thumbnail">
+                        <a href="post.html">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Coding Best Practices">
+                        </a>
+                        <div class="post-category">
+                            <a href="category.html">Development</a>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title"><a href="post.html">10 Coding Best Practices That Will Make Your Code Cleaner</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> March 1, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post">
+                    <div class="post-thumbnail">
+                        <a href="post.html">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Data Analytics">
+                        </a>
+                        <div class="post-category">
+                            <a href="category.html">Analytics</a>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title"><a href="post.html">How Data Analytics is Transforming Business Decision Making</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> February 28, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post">
+                    <div class="post-thumbnail">
+                        <a href="post.html">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cybersecurity">
+                        </a>
+                        <div class="post-category">
+                            <a href="category.html">Security</a>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title"><a href="post.html">Essential Cybersecurity Measures for Remote Work Environments</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> February 25, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post">
+                    <div class="post-thumbnail">
+                        <a href="post.html">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="UI Design">
+                        </a>
+                        <div class="post-category">
+                            <a href="category.html">Design</a>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title"><a href="post.html">Creating Stunning UI Designs: From Concept to Implementation</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> February 22, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post">
+                    <div class="post-thumbnail">
+                        <a href="post.html">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Blockchain">
+                        </a>
+                        <div class="post-category">
+                            <a href="category.html">Blockchain</a>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title"><a href="post.html">Understanding Blockchain Technology: Beyond Cryptocurrency</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> February 20, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post">
+                    <div class="post-thumbnail">
+                        <a href="post.html">
+                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cloud Computing">
+                        </a>
+                        <div class="post-category">
+                            <a href="category.html">Cloud</a>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title"><a href="post.html">Cloud Computing Strategies for Modern Businesses</a></h3>
+                        <div class="post-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> February 18, 2024</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Stay updated with our latest articles and insights delivered directly to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+         <!-- Footer -->
+         <footer id="bringer-footer" data-appear="fade-up" data-unload="fade-down">
+            <!-- Footer Widgets Area -->
+            <div class="bringer-footer-widgets">
+                <div class="stg-container">
+                    <div class="stg-row" data-stagger-appear="fade-left" data-stagger-delay="100">
+                        <div class="stg-col-5 stg-tp-col-12 stg-tp-bottom-gap-l">
+                            <div class="bringer-info-widget">
+                                <a href="./" class="bringer-logo footer-logo">
+                                    <h2 style="font-size:30px;">Tech<span style="color:rgb(78, 119, 253);">Realm</span></h2> 
+
+                                </a>
+                                <div class="bringer-info-description">At TechRealm, we are a passionate team of developers and designers who harness creativity to build powerful digital experiences. We help innovators establish a strong online presence that showcases their work and tells their unique story.</div>
+                                <span class="bringer-label">Email us:Info@techrealm.pk </span>
+                                <span class="bringer-label">Contact us:971589428826 </span>
+                                <span class="bringer-label">Follow us:</span>
+                                <ul class="bringer-socials-list" data-stagger-appear="fade-up" data-stagger-delay="75">
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-facebook">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-instagram">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-x">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-tiktok">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-patreon">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="stg-col-2 stg-offset-1 stg-tp-col-4 stg-m-col-4">
+                            <div class="bringer-widget">
+                                <h6>Services</h6>
+                                <div class="bringer-menu-widget">
+                                    <ul>
+                                        <li><a href="service-details.html">Software Development</a></li>
+                                        <li><a href="service-details.html">AI Development</a></li>
+                                        <li><a href="service-details.html">Digital Marketing</a></li>
+                                        <li><a href="service-details.html">Ecommerce integration</a></li>
+                                        <li><a href="service-details.html">Products</a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- .bringer-widget -->
+                        </div>
+                        <div class="stg-col-2 stg-tp-col-4 stg-m-col-4">
+                            <div class="bringer-widget">
+                                <h6>Our Locations</h6>
+                                <div class="bringer-menu-widget">
+                                    <ul>
+                                        <li><a href="location-dubai.html">Dubai:Building Number 1, Baniyas West Fourth, Baniyas Abu Dhabi, UAE</a></li>
+                                        <li><a href="location-newyork.html">Australia branch:29 Newhaven Dr, Williams Landing VIC 3027, Australia </a></li>
+                                        <li><a href="location-london.html">Usa branch:339 W Gorham St, Madison, WI 53703, United States</a></li>
+                                        <li><a href="location-toronto.html">Pakistan branch:GTC 1st Floor , 8-F, Gulberg 2, Lahore, Pakistan </a></li>
+                                        <li><a href="location-sydney.html">India branch:B-132, B Block, Sector 2, Noida, Uttar Pradesh 201301, India </a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- .bringer-widget -->
+                        </div>
+                        
+                        <div class="stg-col-2 stg-tp-col-4 stg-m-col-4">
+                            <div class="bringer-widget">
+                                <h6>Resources</h6>
+                                <div class="bringer-menu-widget">
+                                    <ul>
+                                        <li><a href="pricing.html">Pricing</a></li>
+                                        <li><a href="faq.html">Help Center</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="#">Terms of Use</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- .bringer-widget -->
+                        </div>
+                    </div><!-- .stg-row -->
+                </div><!-- .stg-container -->
+            </div><!-- .bringer-footer-widgets -->
+
+            <!-- Footer Copyright Line -->
+            <div class="bringer-footer-line stg-container">
+                <div class="align-center">
+                    Copyright TechRealm Pakistan© 2024. All Rights Reserved.
+                </div>
+            </div><!-- bringer-footer-line -->
+        </footer>
+	</main>
+
+    <!-- Right Click Protection Block -->
+    <div class="bringer-rcp-wrap">
+        <div class="bringer-rcp-overlay"></div>
+        <div class="bringer-rcp-container">
+            <h2>The context menu is not allowed on this page.</h2>
+        </div>
+    </div>
+
+    <!-- Dynamic Backlight -->
+    <div class="bringer-backlight"></div>
+
+    <!-- JS Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/libs.js"></script>
+    <script src="js/contact_form.js"></script>
+    <script src="js/st-core.js"></script>
+    <script src="js/classes.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Loader functionality
+        window.addEventListener('load', function() {
+            // Wait for a short delay to ensure all content is loaded
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 500);
+        });
+
+        // Your existing JavaScript code
+        $(document).ready(function() {
+            // Your existing document ready code
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    // Preloader
+    const preloader = document.querySelector('.preloader');
+    window.addEventListener('load', function() {
+        preloader.classList.add('hidden');
+    });
+
+    // Header scroll effect
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    
+    navToggle.addEventListener('click', function() {
+        navToggle.classList.toggle('active');
+        mainNav.classList.toggle('active');
+    });
+
+    // Search overlay toggle
+    const searchToggle = document.querySelector('.search-toggle');
+    const searchOverlay = document.querySelector('.search-overlay');
+    const searchClose = document.querySelector('.search-close');
+    
+    searchToggle.addEventListener('click', function() {
+        searchOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    searchClose.addEventListener('click', function() {
+        searchOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    // Back to top button
+    const backToTop = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('active');
+        } else {
+            backToTop.classList.remove('active');
+        }
+    });
+    
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (isValidEmail(email)) {
+                // Here you would typically send the data to your server
+                // For demo purposes, we'll just show a success message
+                alert('Thank you for subscribing!');
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    }
+
+    // Helper function to validate email
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            
+            if (href !== '#') {
+                e.preventDefault();
+                
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+});
+
+    </script>
+
+</body></html>

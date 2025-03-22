@@ -1,0 +1,1040 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page Title -->
+    <title>Techrealm|Our Services</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+    <!-- Config -->
+    <link type="text/css" rel="stylesheet" href="css/config.css">
+    <!-- Libraries -->
+    <link type="text/css" rel="stylesheet" href="css/libs.css">
+    <!-- Template Styles -->
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <!-- Responsive -->
+    <link type="text/css" rel="stylesheet" href="css/responsive.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" sizes="32x32">
+    <style>
+    #bringer-header{
+background-color: aliceblue;
+    }
+    .bringer-header-inner{
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 70px;
+        background-color: aliceblue;
+    }
+    .main-menu li a{
+        color: rgb(250, 250, 250);
+    }
+        .bringer-header-rp{
+            background-color: black;
+            border-radius: 8px;
+
+        }
+        .bringer-logo h2{
+            font-size: 25px;
+            color: black;
+
+        }
+        h2 span{
+            color: rgb(78, 78, 78);
+        }
+        .sub-menu{
+            background-color: white;
+        }
+       .bringer-small-text ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+       .bringer-small-text li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+       .bringer-small-text li:before {
+            content: "•";
+            color: #3498db;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+       
+
+        /* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+}
+
+/* FAQ Container */
+.influence-faq-container {
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  opacity: 0;
+  animation: fadeIn 300ms ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.influence-faq-container h2 {
+    padding:10px 0px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 40px;
+  color: #ffffff;
+}
+
+/* FAQ List */
+.influence-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* FAQ Item */
+.influence-faq-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* FAQ Question */
+.influence-faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.influence-faq-question h4 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.influence-highlight {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* Toggle Button */
+.influence-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e0f2fe;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  position: relative;
+}
+
+.influence-icon {
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.influence-icon-plus::before,
+.influence-icon-plus::after {
+  content: "";
+  position: absolute;
+  background-color: #3b82f6;
+}
+
+.influence-icon-plus::before {
+  width: 14px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.influence-icon-plus::after {
+  width: 2px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.influence-icon-minus::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 2px;
+  background-color: #3b82f6;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.influence-icon-minus {
+  opacity: 0;
+}
+
+/* FAQ Answer */
+.influence-faq-answer {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.influence-faq-answer p {
+  padding: 16px;
+  color: #ffffff;
+}
+
+/* Active States */
+
+
+.influence-faq-item.active .influence-icon-plus {
+  opacity: 0;
+}
+
+.influence-faq-item.active .influence-icon-minus {
+  opacity: 1;
+}
+
+.influence-faq-item.active .influence-faq-answer {
+  max-height: 500px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .influence-faq-container {
+    padding: 20px;
+  }
+
+  .influence-faq-question h4 {
+    font-size: 16px;
+  }
+}
+
+.services-list {
+    text-align: start;
+            list-style: none;
+            padding: 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .services-list li {
+            padding: 10px;
+            position: relative;
+            font-size: 16px;
+            color: #ffffff;
+            list-style: none;
+            text-decoration: none;
+        }
+        .services-list li:last-child {
+            border-bottom: none;
+        }
+        .services-list li::before {
+            content: "✔";
+            color: #1277e2;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .re-body {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .re-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
+        }
+        
+        .re-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .re-subtitle {
+            text-align: center;
+            color: #cccccc;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .re-challenges-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .re-challenge-box {
+            border-left: 4px solid #008cff;
+            padding: 15px;
+            background-color: #111111;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+        }
+        
+        .re-challenge-heading {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #008cff;
+            font-size: 18px;
+        }
+        
+        .re-challenge-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            .re-challenges-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .re-challenge-box {
+                max-width: 100%;
+            }
+            
+            .re-title {
+                font-size: 24px;
+            }
+            
+            .re-subtitle {
+                font-size: 14px;
+                padding: 0 10px;
+            }
+        }
+        
+        /* Animation for cards */
+        @keyframes re-fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .re-challenge-box {
+            animation: re-fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .re-challenge-box:nth-child(1) { animation-delay: 0.1s; }
+        .re-challenge-box:nth-child(2) { animation-delay: 0.2s; }
+        .re-challenge-box:nth-child(3) { animation-delay: 0.3s; }
+        .re-challenge-box:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="bringer-header" class="is-frosted is-sticky" data-appear="fade-down" data-unload="fade-up">
+        <!-- Desktop Header -->
+        <div class="bringer-header-inner">
+            <!-- Header Logo -->
+            <div class="bringer-header-lp">
+                <a href="./" class="bringer-logo">
+                   <h2>Tech <span>Realm</span></h2>
+                </a>
+            </div>
+            <!-- Main Menu -->
+            <div class="bringer-header-mp">
+                <nav class="bringer-nav">
+                    <ul class="main-menu" data-stagger-appear="fade-down" data-stagger-delay="75">
+                        <li>
+                            <a href="#" style="color: black;">Home</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="index.html">Home 01</a>
+                                </li>
+                                <li>
+                                    <a href="home02.html">Home 02</a>
+                                </li>
+                                <li>
+                                    <a href="home03.html">Home 03</a>
+                                </li>
+                                <li>
+                                    <a href="home04.html">Home 04</a>
+                                </li>
+                                <li>
+                                    <a href="home05.html">Home 05</a>
+                                </li>
+                                <li>
+                                    <a href="home06.html">Home 06</a>
+                                </li>
+                                <li>
+                                    <a href="home07.html">Home 07</a>
+                                </li>
+                                <li>
+                                    <a href="home08.html">Home 08</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" style="color: rgb(15, 15, 15);">About Us</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="about-us.html">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="about-me.html">About Me</a>
+                                </li>
+                                <li>
+                                    <a href="team-member.html">Team Member</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="current-menu-parent">
+                            <a href="#" style="color: rgb(7, 7, 7);">Pages</a>
+                            <ul class="sub-menu">
+                                <li class="current-menu-item">
+                                    <a href="services.html" style="color:rgb(255, 255, 255);">Our Services</a>
+                                </li>
+                                <li>
+                                    <a href="service-details.html">Service Details</a>
+                                </li>
+                                <li>
+                                    <a href="pricing.html">Pricing</a>
+                                </li>
+                                <li>
+                                    <a href="faq.html">F.A.Q.</a>
+                                </li>
+                                <li>
+                                    <a href="testimonials.html">Testimonials</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" style="color: rgb(7, 7, 7);">Portfolio</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="portfolio-infinite-list.html">Infinite List</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-slider.html">Slider</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-column.html">Column Cards</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-grid.html">Classic Grid</a>
+                                </li>
+                                <li class="bringer-menu-divider"></li>
+                                <li>
+                                    <a href="portfolio-post01.html">Portfolio Details 01</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-post02.html">Portfolio Details 02</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-post03.html">Portfolio Details 03</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="contacts.html" style="color: black;">Contacts</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Header Button -->
+            <div class="bringer-header-rp">
+                <a href="contacts.html" class="bringer-button">FREE Quote</a>
+            </div>
+        </div>
+        <!-- Mobile Header -->
+        <div class="bringer-mobile-header-inner">
+            <a href="./" class="bringer-logo">
+                <img src="images/logo.png" alt="bringer." width="88" height="24">
+            </a>
+            <a href="#" class="bringer-mobile-menu-toggler">
+                <i class="bringer-menu-toggler-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </i>
+            </a>
+        </div>
+    </div>
+    </header>
+
+    <!-- Page Main -->
+    <main id="bringer-main">
+        <div class="stg-container">
+            <!-- Section: Page Title -->
+            <section class="backlight-bottom">
+                <div class="stg-row">
+                    <div class="stg-col-6 stg-offset-3 align-center stg-tp-col-10 stg-tp-offset-1">
+                        <h2 class="bringer-page-title" data-appear="fade-up" data-unload="fade-up">Retail and Consumer Goods
+
+
+                        </h2>
+                        <p class="bringer-large-text" data-split-appear="fade-up" data-delay="100" data-split-unload="fade-up"> 
+                            It's time to future-proof your retail and consumer goods business. Embark on a transformative online journey with our dedicated app development services and witness unprecedented growth.
+
+
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Intro -->
+            <section>
+                <!-- Section Image -->
+                <div class="bringer-parallax-media stg-bottom-gap-l" data-appear="fade-up" data-unload="fade-up">
+                    <img class="bringer-lazy" src="images/bg11.jpg" data-src="Images/bg11.jpg" alt="Bringer Services" width="1920" height="960">
+                </div>
+
+                <!-- Section Title -->
+                <div class="stg-row stg-bottom-gap">
+                    <div class="stg-col-6" data-unload="fade-left">
+                        <h2 class="stg-bottom-gap" data-split-appear="fade-up">
+
+
+                        </h2>
+                    </div>
+                    <div class="stg-col-6"></div>
+                </div>
+
+                <!-- Section Content -->
+                <div class="stg-row stg-tp-column-reverse">
+                    <div class="stg-col-6 stg-valign-bottom" data-unload="fade-left">
+                        <div class="align-right">
+                            <a href="pricing.html" class="bringer-icon-link" data-appear="fade-right">
+                                <img src="images/mg11.jpg" alt="team">
+                                <!-- <div class="bringer-icon-link-content">
+                                    <h6>
+
+                                        We Have a Skilled<br> Team 
+                                    </h6>
+                                </div> -->
+                                <!-- <div class="bringer-icon-wrap">
+                                    <i class="bringer-icon bringer-icon-explore"></i>
+                                </div> -->
+                            </a><!-- .bringer-icon-link -->
+                        </div>
+                    </div>
+                    <div class="stg-col-6 stg-tp-col-9 stg-tp-bottom-gap" data-appear="fade-left" data-unload="fade-right">
+                        <h4>
+                            Bridging Technology and Commerce: Our Expertise in Retail and Consumer Goods App Development
+
+                        </h4>
+                        <p class="bringer-small-text">Techrealm is a leading authority in retail and consumer goods app development. Our vision is to revolutionize how businesses connect with their customers digitally, by providing innovative, user-friendly, and transformative mobile app solutions. We are guided by a mission to harness the power of technology and creative thinking, to create digital products that drive growth, engagement, and customer satisfaction.
+
+                            Our services span the entire app development cycle, from the initial concept to the final product. We specialize in custom app development, creating unique solutions tailored to your business needs. Our team of experienced developers harnesses the power of cutting-edge technologies to deliver apps that are intuitive, robust, and future-ready. We also offer UI/UX design services, creating visually appealing and user-friendly interfaces, and provide full post-development support. We're dedicated to transforming your digital aspirations into a tangible and profitable reality. </div>
+                </div>
+            </section>
+
+            <!-- Section: Our Services -->
+            <section class="backlight-top">
+                <!-- Section Title -->
+                <div class="stg-row bringer-section-title">
+                    <div class="stg-col-md-6 stg-offset-1">
+                        <img src="images/mg12.jpg" alt="team2">
+                    
+                    </div>
+                </div><body class="re-body">
+                    <div class="re-header">
+                        <h1 class="re-title">Challenges in Retail and Consumer Goods app development
+                        </h1>
+                    </div>
+                    
+                    <p class="re-subtitle">
+                        Instant access to products and brands for consumers at home, in office or on-the-move As everything in retail revolves around consumer, from product development to providing a service to after sales support, there are a number of challenges that most retailers face today.
+                    </p>
+                    
+                    <div class="re-challenges-grid">
+                        <div class="re-challenge-box">
+                            <div class="re-challenge-heading">Seasonality</div>
+                            <div class="re-challenge-text">
+                                Retail and consumer goods sectors are often subject to seasonal fluctuations in demand. Developers must ensure that the app can handle these fluctuations, which can be a non-technical challenge in terms of planning and resource allocation.
+                            </div>
+                        </div>
+                        
+                        <div class="re-challenge-box">
+                            <div class="re-challenge-heading">Creating Trust
+                            </div>
+                            <div class="re-challenge-text">
+                                After successfully launching the app and acquiring users, the challenge becomes keeping those users engaged over the long term. This involves continuously providing value, which can be done through regular updates, fresh content, and responsive customer service.
+
+
+                            </div>
+                        </div>
+                        
+                        <div class="re-challenge-box">
+                            <div class="re-challenge-heading">Long-term Engagement
+                            </div>
+                            <div class="re-challenge-text">
+                                After successfully launching the app and acquiring users, the challenge becomes keeping those users engaged over the long term. This involves continuously providing value, which can be done through regular updates, fresh content, and responsive customer service.
+
+                            </div>
+                        </div>
+                        
+                        <div class="re-challenge-box">
+                            <div class="re-challenge-heading">Budget Constraints
+                            </div>
+                            <div class="re-challenge-text">
+                                Budget constraints can significantly impact the development and maintenance of the app. These can limit the app's features, marketing efforts, and even the ability to provide customer support.
+
+                            </div>
+                        </div>
+                    </div>
+                <!-- Services List -->
+                <!-- <div class="influence-faq-container" data-animation="fade-in" data-timing="300">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <div class="influence-faq-list">
+                        <div class="influence-faq-item">
+                            <div class="influence-faq-question">
+                                <h4> <span class="influence-highlight">What is React JS?
+
+
+                                </span></h4>
+                                <button class="influence-toggle-btn">
+                                    <span class="influence-icon influence-icon-plus"></span>
+                                    <span class="influence-icon influence-icon-minus"></span>
+                                </button>
+                            </div>
+                            <div class="influence-faq-answer">
+                                <p>React JS is a JavaScript library developed by Facebook for building user interfaces. It follows a component-based architecture, where UIs are divided into reusable components. React JS efficiently updates and renders components using a virtual DOM, providing a seamless user experience.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="influence-faq-item">
+                            <div class="influence-faq-question">
+                                <h4><span class="influence-highlight">What are the benefits of using React JS?
+
+
+                                </span></h4>
+                                <button class="influence-toggle-btn">
+                                    <span class="influence-icon influence-icon-plus"></span>
+                                    <span class="influence-icon influence-icon-minus"></span>
+                                </button>
+                            </div>
+                            <div class="influence-faq-answer">
+                                <p>React JS offers several benefits, including code reusability, component-based architecture, virtual DOM for efficient rendering, unidirectional data flow, extensive developer tools and ecosystem, performance optimizations, SEO-friendliness, and strong community support.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="influence-faq-item">
+                            <div class="influence-faq-question">
+                                <h4><span class="influence-highlight">What kind of web applications can be built with React JS?
+
+
+                                </span></h4>
+                                <button class="influence-toggle-btn">
+                                    <span class="influence-icon influence-icon-plus"></span>
+                                    <span class="influence-icon influence-icon-minus"></span>
+                                </button>
+                            </div>
+                            <div class="influence-faq-answer">
+                                <p>React JS is versatile and can be used to build various types of web applications, ranging from simple single-page applications (SPAs) to complex enterprise-level applications. It is suitable for e-commerce websites, social media platforms, dashboards, data visualization tools, and more.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="influence-faq-item">
+                            <div class="influence-faq-question">
+                                <h4><span class="influence-highlight">Is React JS suitable for large-scale projects?
+
+
+                                </span></h4>
+                                <button class="influence-toggle-btn">
+                                    <span class="influence-icon influence-icon-plus"></span>
+                                    <span class="influence-icon influence-icon-minus"></span>
+                                </button>
+                            </div>
+                            <div class="influence-faq-answer">
+                                <p>Yes, React JS is well-suited for large-scale projects. It's component-based architecture and modular approach make it easier to manage and scale applications. React's virtual DOM and performance optimizations also contribute to the efficient rendering of large applications.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="influence-faq-item">
+                            <div class="influence-faq-question">
+                                <h4><span class="influence-highlight">Do I need to have prior knowledge of JavaScript to work with React JS?
+
+
+                                </span></h4>
+                                <button class="influence-toggle-btn">
+                                    <span class="influence-icon influence-icon-plus"></span>
+                                    <span class="influence-icon influence-icon-minus"></span>
+                                </button>
+                            </div>
+                            <div class="influence-faq-answer">
+                                <p>Yes, a solid understanding of JavaScript is essential for working with React JS. React JS is a JavaScript library, so having a good grasp of core JavaScript concepts like variables, functions, objects, and arrays will greatly facilitate learning and working with React JS.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="influence-faq-item">
+                            <div class="influence-faq-question">
+                                <h4><span class="influence-highlight">Is React JS suitable for mobile app development?
+
+
+
+                                </span></h4>
+                                <button class="influence-toggle-btn">
+                                    <span class="influence-icon influence-icon-plus"></span>
+                                    <span class="influence-icon influence-icon-minus"></span>
+                                </button>
+                            </div> 
+                            <div class="influence-faq-answer">
+                                <p>React JS itself is primarily focused on web development. However, React Native, a framework built on top of React JS, allows for mobile app development using React principles. With React Native, developers can build cross-platform mobile applications for iOS and Android using React JS syntax and components.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </section>
+
+            <!-- Section: Marquee -->
+            <section class="is-fullwidth is-stretched" data-padding="none">
+                <div class="bringer-marquee" data-speed="5000">
+                    <div class="bringer-marquee-inner">
+                        <ul class="bringer-marquee-list">
+                            <li>
+                                <h2>Unleash Your Creativity</h2>
+                            </li>
+                            <li>
+                                <h2>Spark Imagination</h2>
+                            </li>
+                            <li>
+                                <h2>Creative Firestorms</h2>
+                            </li> 
+                            <li>
+                                <h2>Ignite Results</h2>
+                            </li>
+                        </ul>
+                    </div><!-- .bringer-marquee-inner -->
+                </div><!-- .bringer-marquee -->
+            </section>
+
+            <!-- Section: What Makes Us Best -->
+            <section class="backlight-bottom">
+                <!-- Section Title -->
+                <!-- <div class="stg-row bringer-section-title">
+                    <div class="stg-col-8 stg-offset-2">
+                        <div class="align-center">
+                            <h2 data-appear="fade-up" data-unload="fade-up">Scalable and Customized ReactJS Development Services: Empowering Your Web Presence
+
+                            </h2>
+                            <p class="bringer-large-text" data-appear="fade-up" data-delay="100" data-unload="fade-up">We are a ReactJS development service provider that specializes in offering services related to ReactJS web development. We have a team of skilled and experienced developers who are proficient in utilizing ReactJS to build robust and scalable web applications.
+                                The services offered by ReactJS development service providers typically include:
+
+
+
+
+                             <ul class="services-list">
+                                    <li>Custom web application development using ReactJS
+
+                                    </li>
+                                    <li>UI/UX design and development for ReactJS applications
+
+                                    </li>
+                                    <li>Front-end development using ReactJS and related technologies
+
+                                    </li>
+                                    <li>ReactJS component development and customization
+
+                                    </li>
+                                    <li>Integration of ReactJS with back-end systems and APIs
+
+                                    </li>
+                                    <li>Testing, debugging, and optimization of ReactJS applications
+
+                                    </li>
+                                    <li>Migration of existing applications to ReactJS
+
+
+                                    </li>
+                                    <li>Maintenance and support services for ReactJS applications
+
+
+                                    </li>
+                                </ul>
+
+
+</div>
+                    </div>
+                </div> -->
+                <!-- Content Grid -->
+                
+            </section>
+
+            <!-- Section: Grid CTA -->
+            <section>
+                <div class="bringer-bento-grid bringer-grid-cta">
+                    <div class="is-large bringer-masked-block" data-appear="fade-right" data-unload="fade-left">
+                        <div class="bringer-grid-cta-media bringer-masked-media" data-bg-src="img/cta/grid-cta-background.jpg">
+                            <div class="bringer-grid-cta-heading">Need to amplify your voice?</div>
+                        </div>
+                        <div class="bringer-masked-content at-bottom-right">
+                            <p class="bringer-large-text" data-appear="fade-right" data-delay="100">Let's chat about your goals →</p>
+                        </div>
+                    </div>
+                    <div class="is-medium bringer-block" data-appear="fade-down" data-unload="fade-right">
+                        <h3>We will design campaigns that make the world listen</h3>
+                    </div>
+                    <div class="is-small" data-appear="zoom-out" data-delay="100" data-unload="zoom-out">
+                        <a href="contacts.html" class="bringer-square-button">
+                            <span class="bringer-icon bringer-icon-explore"></span>
+                        </a>
+                    </div>
+                    <div class="is-small" data-appear="zoom-out" data-delay="200" data-unload="zoom-out">
+                        <img src="images/grid-cta-02.jpg" alt="Let's Chat" width="960" height="960">
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- .stg-container -->
+
+        <!-- Footer -->
+        <footer id="bringer-footer" data-appear="fade-up" data-unload="fade-down">
+            <!-- Footer Widgets Area -->
+            <div class="bringer-footer-widgets">
+                <div class="stg-container">
+                    <div class="stg-row" data-stagger-appear="fade-left" data-stagger-delay="100">
+                        <div class="stg-col-5 stg-tp-col-12 stg-tp-bottom-gap-l">
+                            <div class="bringer-info-widget">
+                                <a href="./" class="bringer-logo footer-logo">
+                                <h2 style="color: aliceblue;">Tech <span style="color: rgb(134, 133, 133);">Realm</span></h2>
+                                </a>
+                                <div class="bringer-info-description">We are a passionate team of developers and designers who believe in the power of creativity. We help creative people create a strong online presence that shows their work and tells a story.</div>
+                                <span class="bringer-label">Follow us:</span>
+                                <ul class="bringer-socials-list" data-stagger-appear="fade-up" data-stagger-delay="75">
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-facebook">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-instagram">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-x">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-tiktok">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" class="bringer-socials-patreon">
+                                            <i></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="stg-col-2 stg-offset-1 stg-tp-col-4 stg-m-col-4">
+                            <div class="bringer-widget">
+                                <h6>Services</h6>
+                                <div class="bringer-menu-widget">
+                                    <ul>
+                                        <li><a href="service-details.html">Branding</a></li>
+                                        <li><a href="service-details.html">Marketing</a></li>
+                                        <li><a href="service-details.html">Graphic Design</a></li>
+                                        <li><a href="service-details.html">Web Design</a></li>
+                                        <li><a href="service-details.html">Content Creation</a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- .bringer-widget -->
+                        </div>
+                        <div class="stg-col-2 stg-tp-col-4 stg-m-col-4">
+                            <div class="bringer-widget">
+                                <h6>About Us</h6>
+                                <div class="bringer-menu-widget">
+                                    <ul>
+                                        <li><a href="about-us.html">About Us</a></li>
+                                        <li><a href="about-me.html">About Me</a></li>
+                                        <li><a href="team-member.html">Our Team</a></li>
+                                        <li><a href="testimonials.html">Testimonials</a></li>
+                                        <li><a href="contacts.html">Get in Touch</a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- .bringer-widget -->
+                        </div>
+                        <div class="stg-col-2 stg-tp-col-4 stg-m-col-4">
+                            <div class="bringer-widget">
+                                <h6>Resources</h6>
+                                <div class="bringer-menu-widget">
+                                    <ul>
+                                        <li><a href="pricing.html">Pricing</a></li>
+                                        <li><a href="faq.html">Help Center</a></li>
+                                        <li><a href="services.html">Our Services</a></li>
+                                        <li><a href="#">Terms of Use</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div><!-- .bringer-widget -->
+                        </div>
+                    </div><!-- .stg-row -->
+                </div><!-- .stg-container -->
+            </div><!-- .bringer-footer-widgets -->
+
+            <!-- Footer Copyright Line -->
+            <div class="bringer-footer-line stg-container">
+                <div class="align-center">
+                    Copyright © 2024. All Rights Reserved.
+                </div>
+            </div><!-- bringer-footer-line -->
+        </footer>
+	</main>
+
+    <!-- Right Click Protection Block -->
+    <div class="bringer-rcp-wrap">
+        <div class="bringer-rcp-overlay"></div>
+        <div class="bringer-rcp-container">
+            <h2>The context menu is not allowed on this page.</h2>
+        </div>
+    </div>
+
+    <!-- Dynamic Backlight -->
+    <div class="bringer-backlight"></div>
+
+    <!-- JS Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/libs.js"></script>
+    <script src="js/contact_form.js"></script>
+    <script src="js/st-core.js"></script>
+    <script src="js/classes.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+  // Get all FAQ items
+  const faqItems = document.querySelectorAll(".influence-faq-item")
+
+  // Add click event to each FAQ question
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".influence-faq-question")
+
+    question.addEventListener("click", () => {
+      // Check if current item is already active
+      const isActive = item.classList.contains("active")
+
+      // Close all items
+      faqItems.forEach((faqItem) => {
+        faqItem.classList.remove("active")
+      })
+
+      // If clicked item wasn't active, open it
+      if (!isActive) {
+        item.classList.add("active")
+      }
+    })
+  })
+
+  // Apply animation timing from data attribute
+  const faqContainer = document.querySelector(".influence-faq-container")
+  if (faqContainer) {
+    const timing = faqContainer.getAttribute("data-timing")
+    if (timing) {
+      const style = document.createElement("style")
+      style.textContent = `
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(10px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                
+                .influence-faq-container {
+                    animation-duration: ${timing}ms;
+                }
+            `
+      document.head.appendChild(style)
+    }
+  }
+})
+
+document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.re-challenge-box');
+            
+            // Add hover effect
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 5px 15px rgba(0, 170, 255, 0.2)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 2px 5px rgba(255, 255, 255, 0.1)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+            });
+            
+            // Make sure animations play when elements are in viewport
+            function checkVisibility() {
+                cards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const isVisible = (
+                        rect.top >= 0 &&
+                        rect.left >= 0 &&
+                        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                    );
+                    
+                    if (isVisible) {
+                        card.style.opacity = '1';
+                    }
+                });
+            }
+            
+            // Check visibility on load and scroll
+            window.addEventListener('scroll', checkVisibility);
+            checkVisibility();
+        });
+
+    </script>
+
+</body></html>
