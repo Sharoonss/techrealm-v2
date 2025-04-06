@@ -274,7 +274,6 @@ a,
 a:focus,
 a:visited {
     text-decoration: none;
-    color: var(--bringer-s-text-accent);
 }
 a {
     transition: color 0.3s;

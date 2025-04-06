@@ -629,227 +629,601 @@
         color: #fff;
         border-color: #fff;
     }
+
+    
+              /* Common styles */
+ #techrealm-header {
+        width: 100%;
+        position: relative;
+        z-index: 1000;
+    }
+    
+    .techrealm-logo h2 {
+        margin: 0;
+        transition: all 0.3s ease;
+    }
+    
+    .techrealm-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: rgb(78, 119, 253);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .techrealm-button:hover {
+        background-color: #2c5ae9;
+        transform: translateY(-2px);
+    }
+    
+    /* Desktop header styles */
+    .techrealm-desktop-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background-color: rgb(14, 13, 13);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .main-menu-list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .main-menu-list > li {
+        position: relative;
+        margin: 0 15px;
+        list-style: none;
+
+    }
+    
+    .main-menu-list > li > a {
+        display: block;
+        color: #fdfcfc;
+        text-decoration: none;
+        padding: 10px 0;
+        font-weight: 500;
+        list-style: none;
+        transition: all 0.3s ease;
+    }
+    
+    .main-menu-list > li > a:hover {
+        color: rgb(78, 119, 253);
+    }
+    
+    /* Submenu styles */
+    .submenu-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 200px;
+        background-color: #fff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px 0;
+        margin-top: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 100;
+        list-style: none;
+    }
+    
+    .menu-has-children:hover .submenu-list {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .submenu-list li a {
+        display: block;
+        padding: 8px 20px;
+        color: #333;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .submenu-list li a:hover {
+        background-color: #f5f5f5;
+        color: rgb(78, 119, 253);
+    }
+    
+    /* Mega menu styles */
+    .mega-menu-content {
+        position: absolute;
+        top: 100%;
+        left: -200px;
+        width: 1000px;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #fff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 20px;
+        margin-top: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 100;
+    }
+    
+    .mega-menu-item:hover .mega-menu-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .mega-menu-section {
+        width: 20%;
+        padding: 0 15px;
+    }
+    
+    .mega-menu-section h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #333;
+        font-weight: 600;
+    }
+    
+    .mega-menu-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+    }
+    
+    .mega-menu-section ul li a {
+        display: block;
+        padding: 5px 0;
+        color: #666;
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+    
+    .mega-menu-section ul li a:hover {
+        color: rgb(78, 119, 253);
+    }
+    
+    /* Mobile header styles */
+    .techrealm-mobile-header {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #1e1b1b;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .techrealm-toggle-icon {
+        display: block;
+        width: 30px;
+        height: 22px;
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .techrealm-toggle-icon span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: #fffefe;
+        border-radius: 3px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+    }
+    
+    .techrealm-toggle-icon span:nth-child(1) {
+        top: 0px;
+    }
+    
+    .techrealm-toggle-icon span:nth-child(2) {
+        top: 9px;
+    }
+    
+    .techrealm-toggle-icon span:nth-child(3) {
+        top: 18px;
+    }
+    
+    .techrealm-menu-toggle.active .techrealm-toggle-icon span:nth-child(1) {
+        top: 9px;
+        transform: rotate(135deg);
+    }
+    
+    .techrealm-menu-toggle.active .techrealm-toggle-icon span:nth-child(2) {
+        opacity: 0;
+        left: -60px;
+    }
+    
+    .techrealm-menu-toggle.active .techrealm-toggle-icon span:nth-child(3) {
+        top: 9px;
+        transform: rotate(-135deg);
+    }
+    
+    /* Mobile menu styles */
+    .techrealm-mobile-menu {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: #fff;
+        overflow-y: auto;
+        z-index: 1000;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .mobile-menu-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .mobile-menu-list > li {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+    }
+    
+    .mobile-menu-list > li > a {
+        display: block;
+        padding: 8px 0;
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+        text-decoration: none;
+    }
+    
+    .mobile-submenu {
+        display: none;
+        list-style: none;
+        padding-left: 15px;
+        margin-top: 10px;
+    }
+    
+    .mobile-submenu.active {
+        display: block;
+    }
+    
+    .mobile-submenu li a {
+        display: block;
+        padding: 8px 0;
+        font-size: 14px;
+        color: #666;
+        text-decoration: none;
+    }
+    
+    .techrealm-mobile-cta {
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 992px) {
+        .techrealm-desktop-header {
+            display: none;
+        }
+        
+        .techrealm-mobile-header {
+            display: flex;
+        }
+        
+        .techrealm-mobile-menu.active {
+            display: block;
+        }
+    }
+    
+    @media (min-width: 993px) {
+        .techrealm-mobile-menu {
+            display: none !important;
+        }
+    }
+    
+    /* Additional responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+        .techrealm-mobile-header {
+            padding: 10px 15px;
+        }
+        
+        .techrealm-logo h2 {
+            font-size: 24px !important;
+        }
+    } 
+      
         </style>
 </head>
 <body>
-    <header id="bringer-header" class="is-frosted is-sticky" data-appear="fade-down" data-unload="fade-up">
-        <!-- Desktop Header -->
-        <div class="bringer-header-inner">
-            <!-- Header Logo -->
-            <div class="bringer-header-lp">
-                <a href="./" class="bringer-logo">
-                  <h2 style="font-size:30px;">Tech<span style="color:rgb(78, 119, 253);">Realm</span></h2> 
-                </a>
-            </div>
-            <!-- Main Menu -->
-            <div class="bringer-header-mp">
-                <nav class="bringer-nav" style="width:100%;">
-                    <ul class="main-menu" data-stagger-appear="fade-down" data-stagger-delay="75">
-                        <li class="current-menu-parent">
-                            <a href="/index.html">Home</a>
-                        </li>
-                        <li class="nav-dropdown">
-                            <a href="/about/about.html">About Us <i class="fas fa-chevron-down"></i></a>
-                            <ul class="nav-dropdown-menu">
-                                <li><a href="/legal-disclosure/index.html">Legal Disclosure</a></li>
-                                <li>
-                                    <a href="/invest/index.html">Invest</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="/services/service.html">Our Services</a>
-                            <div class="dropdown-content">
-                                <div class="dropdown-section">
-                                    <h3>Software Development</h3>
-                                    <ul>
-                                        <li><a href="/services detail/techreaml-service1/index.html">Custom Software Development</a></li>
-                                        <li><a href="/services detail/techrealm2 - service2/index.html">Enterprise Software Development</a></li>
-                                        <li><a href="/services detail/techrealm2 - service3/index.html">Product Development</a></li>
-                                        <li><a href="/services detail/techrealm2 - service4/index.html">Web Application Development</a></li>
-                                        <li><a href="/services detail/techrealm2 - service5/index.html">Mobile Application Development</a></li>
-                                        <li><a href="/services detail/techrealm2 - service6/index.html">Cloud Application Development</a></li>
-                                    </ul>
-                                    <h3>Maintenance and Support</h3>
-                                    <ul>
-                                        <li><a href="/services detail/techrealm2 - service7/index.html">Application Support</a></li>
-                                        <li><a href="/services detail/techrealm2 - service8/index.html">Infrastructure Support</a></li>
-                                        <li><a href="/services detail/techrealm2 - service9/index.html">Customer Support</a></li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="dropdown-section">
-                                    <h3>Infrastructure</h3>
-                                    <ul>
-                                        <li><a href="/services detail/techrealm2 - service10/index.html">Cloud Infrastructure</a></li>
-                                        <li><a href="/services detail/techrealm2 - service11/index.html">Hybrid Infrastructure</a></li>
-                                        <li><a href="/services detail/techrealm2 - service12/index.html">On-Premises Infrastructure</a></li>
-                                        <li><a href="/services detail/techrealm2 - service13/index.html">Integration</a></li>
-                                        <li><a href="/services detail/techrealm2 - service14/index.html">Migration</a></li>
-                                        <li><a href="/services detail/techrealm2 - service15/index.html">Devops</a></li>
-                                    </ul>
-                                    <h3>Testing</h3>
-                                    <ul>
-                                        <li><a href="/services detail/techrealm2 - service16/index.html">Manual Testing</a></li>
-                                        <li><a href="/services detail/techrealm2 - service17/index.html">Automation Testing</a></li>
-                                        <li><a href="/services detail/techrealm2 - service18/index.html">Continuous Testing</a></li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="dropdown-section">
-                                    <h3>Digital</h3>
-                                    <ul>
-                                        <li><a href="/services detail/techrealm2 - service19/index.html">Digital Marketing</a></li>
-                                        <li><a href="/services detail/techrealm2 - Service20/index.html">Influential Marketing</a></li>
-                                        <li><a href="/services detail/techrealm2 - service21/index.html">Online Reputation Management</a></li>
-                                        <li><a href="/services detail/techrealm2 - Service22/index.html">Digital Consultation</a></li>
-                                        <li><a href="/services detail/techrealm2 - service23/index.html">Improved ROI</a></li>
-                                    </ul>
-                                    <h3>Advisory</h3>
-                                    <ul>
-                                        <li><a href="/services detail/techrealm2 - service24/index.html">Digital Transformation</a></li>
-                                        <li><a href="/services detail/techrealm2 - service25/index.html">Business Technology Consulting</a></li>
-                                        <li><a href="/services detail/techrealm2 - service26/index.html">Cloud Strategy Consulting</a></li>
-                                    </ul>
-                                </div>
+  <!-- Header -->
+  <header id="techrealm-header" class="is-frosted is-sticky" data-appear="fade-down" data-unload="fade-up">
+    <!-- Desktop Header -->
+    <div class="techrealm-desktop-header">
+        <!-- Header Logo -->
+        <div class="techrealm-logo-container">
+            <a href="./" class="techrealm-logo">
+              <h2 style="font-size:30px;">Tech<span style="color:rgb(78, 119, 253);">Realm</span></h2> 
+            </a>
+        </div>
+        <!-- Main Menu -->
+        <div class="techrealm-menu-container">
+            <nav class="techrealm-navigation" style="width:100%;">
+                <ul class="main-menu-list" data-stagger-appear="fade-down" data-stagger-delay="75">
+                    <li class="current-menu-item">
+                        <a href="/index.html">Home</a>
+                    </li>
+                    <li class="menu-has-children">
+                        <a href="/about/about.html">About Us <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu-list">
+                          <li><a href="/legal-disclosure/index.html">Legal Disclosure</a></li>
+                            <li>
+                                <a href="/invest/index.html">Invest</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="mega-menu-item">
+                        <a href="/services/service.html">Our Services</a>
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-section">
+                                <h3>Software Development</h3>
+                                <ul>
+                                    <li><a href="/services detail/techreaml-service1/index.html">Custom Software Development</a></li>
+                                    <li><a href="/services detail/techrealm2 - service2/index.html">Enterprise Software Development</a></li>
+                                    <li><a href="/services detail/techrealm2 - service3/index.html">Product Development</a></li>
+                                    <li><a href="/services detail/techrealm2 - service4/index.html">Web Application Development</a></li>
+                                    <li><a href="/services detail/techrealm2 - service5/index.html">Mobile Application Development</a></li>
+                                    <li><a href="/services detail/techrealm2 - service6/index.html">Cloud Application Development</a></li>
+                                </ul>
+                                <h3>Maintenance and Support</h3>
+                                <ul>
+                                    <li><a href="/services detail/techrealm2 - service7/index.html">Application Support</a></li>
+                                    <li><a href="/services detail/techrealm2 - service8/index.html">Infrastructure Support</a></li>
+                                    <li><a href="/services detail/techrealm2 - service9/index.html">Customer Support</a></li>
+                                </ul>
                             </div>
-                        </li>
-                       <li class="dropdown">
-    <a href="/services/service.html">Our Technologies</a>
-    <div class="dropdown-content">
-        <div class="dropdown-section">
-            <h3>E-Commerce Platforms</h3>
-            <ul>
-                <li><a href="/technology/techrealm2 - Service28/index.html">Magento</a></li>
-                <li><a href="/technology/techrealm2 - Service27/index.html">Shopify</a></li>
-                <li><a href="/technology/techrealm2 - Service29/index.html">OpenCart</a></li>
-                <li><a href="/technology/techrealm2 - Service30/index.html">WooCommerce</a></li>
-                <li><a href="/technology/techrealm2 - Service31/index.html">BigCommerce</a></li>
-            </ul>
-            <h3>CMS Platforms</h3>
-            <ul>
-                <li><a href="/technology/techrealm2 - Service32/index.html">WordPress</a></li>
-                <li><a href="/technology/techrealm2 - Service33/index.html">Drupal</a></li>
-                <li><a href="/technology/techrealm2 - Service34/index.html">Joomla</a></li>
-            </ul>
+                            
+                            <div class="mega-menu-section">
+                                <h3>Infrastructure</h3>
+                                <ul>
+                                    <li><a href="/services detail/techrealm2 - service10/index.html">Cloud Infrastructure</a></li>
+                                    <li><a href="/services detail/techrealm2 - service11/index.html">Hybrid Infrastructure</a></li>
+                                    <li><a href="/services detail/techrealm2 - service12/index.html">On-Premises Infrastructure</a></li>
+                                    <li><a href="/services detail/techrealm2 - service13/index.html">Integration</a></li>
+                                    <li><a href="/services detail/techrealm2 - service14/index.html">Migration</a></li>
+                                    <li><a href="/services detail/techrealm2 - service15/index.html">Devops</a></li>
+                                </ul>
+                                <h3>Testing</h3>
+                                <ul>
+                                    <li><a href="/services detail/techrealm2 - service16/index.html">Manual Testing</a></li>
+                                    <li><a href="/services detail/techrealm2 - service17/index.html">Automation Testing</a></li>
+                                    <li><a href="/services detail/techrealm2 - service18/index.html">Continuous Testing</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mega-menu-section">
+                                <h3>Digital</h3>
+                                <ul>
+                                    <li><a href="/services detail/techrealm2 - service19/index.html">Digital Marketing</a></li>
+                                    <li><a href="/services detail/techrealm2 - Service20/index.html">Influential Marketing</a></li>
+                                    <li><a href="/services detail/techrealm2 - service21/index.html">Online Reputation Management</a></li>
+                                    <li><a href="/services detail/techrealm2 - Service22/index.html">Digital Consultation</a></li>
+                                    <li><a href="/services detail/techrealm2 - service23/index.html">Improved ROI</a></li>
+                                </ul>
+                                <h3>Advisory</h3>
+                                <ul>
+                                    <li><a href="/services detail/techrealm2 - service24/index.html">Digital Transformation</a></li>
+                                    <li><a href="/services detail/techrealm2 - service25/index.html">Business Technology Consulting</a></li>
+                                    <li><a href="/services detail/techrealm2 - service26/index.html">Cloud Strategy Consulting</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                   <li class="mega-menu-item">
+                    <a href="/services/service.html">Our Technologies</a>
+                    <div class="mega-menu-content">
+                        <div class="mega-menu-section">
+                            <h3>E-Commerce Platforms</h3>
+                            <ul>
+                                <li><a href="/technology/techrealm2 - Service28/index.html">Magento</a></li>
+                                <li><a href="/technology/techrealm2 - Service27/index.html">Shopify</a></li>
+                                <li><a href="/technology/techrealm2 - Service29/index.html">OpenCart</a></li>
+                                <li><a href="/technology/techrealm2 - Service30/index.html">WooCommerce</a></li>
+                                <li><a href="/technology/techrealm2 - Service31/index.html">BigCommerce</a></li>
+                            </ul>
+                            <h3>CMS Platforms</h3>
+                            <ul>
+                                <li><a href="/technology/techrealm2 - Service32/index.html">WordPress</a></li>
+                                <li><a href="/technology/techrealm2 - Service33/index.html">Drupal</a></li>
+                                <li><a href="/technology/techrealm2 - Service34/index.html">Joomla</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mega-menu-section">
+                            <h3>Frameworks & Languages</h3>
+                            <ul>
+                                <li><a href="/technology/techrealm2 - Service35/index.html">PHP Frameworks</a></li>
+                                <li><a href="/technology/techrealm2 - Service36/index.html">Laravel</a></li>
+                                <li><a href="/technology/techrealm2 - Service37/index.html">Mean/Mern</a></li>
+                                <li><a href="/technology/techrealm2 - Service38/index.html">Node.js</a></li>
+                                <li><a href="/technology/techrealm2 - Service39/index.html">Python</a></li>
+                            </ul>
+                            <h3>Mobile Development</h3>
+                            <ul>
+                                <li><a href="/technology/techrealm2 - Service40/index.html">iPhone</a></li>
+                                <li><a href="/technology/techrealm2 - Service41/index.html">Android</a></li>
+                                <li><a href="/technology/techrealm2 - Service42/index.html">React Native</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mega-menu-section">
+                            <h3>Enterprise Solutions</h3>
+                            <ul>
+                                <li><a href="/technology/techrealm2 - Service43/index.html">MS Dynamics CRM</a></li>
+                                <li><a href="/technology/techrealm2 - Service44/index.html">SharePoint</a></li>
+                                <li><a href="/technology/techrealm2 - Service45/index.html">Microsoft Bot</a></li>
+                            </ul>
+                            <h3>Frontend Technologies</h3>
+                            <ul>
+                                <li><a href="/technology/techrealm2 - Service46/index.html">Graphics</a></li>
+                                <li><a href="/technology/techrealm2 - Service47/index.html">React JS</a></li>
+                                <li><a href="/technology/techrealm2 - Service49/index.html">Angular Js</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="mega-menu-section">
+                            <h3>Industries</h3>
+                            <ul>
+                                <li><a href="/technology/techrealm2 - Service51/index.html">E-commerce-solution</a></li>
+                                <li><a href="/technology/techrealm2 - Service50/index.html">Real-estate</a></li>
+                                <li><a href="/technology/techrealm2 - Service52/index.html">Retail-and-consumer-goods</a></li>
+                            </ul>
+                            <h3>Frontend Technologies</h3>
+                            <ul>
+                                <li><a href="/technology/techrealm2 - Service53/index.html">Health Care</a></li>
+                                <li><a href="/technology/techrealm2 - Service54/index.html">Media and Entertainment</a></li>
+                                <li><a href="/technology/techrealm2 - Service55/index.html">Logistics and Transportation</a></li>
+                                <li><a href="/technology/techrealm2 - Service56/index.html">Travel & Tourism</a></li>
+                            </ul>
+                            
+                        </div>
+                        <div class="mega-menu-section">
+                            <ul>
+                                <li><a href="/technology/techrealm2 - Service57/index.html"> Banking & Finance</a></li>
+                                <li><a href="/technology/techrealm2 - Service58/index.html">Education & E-learning</a></li>
+                                <li><a href="/technology/techrealm2 - Service52/index.html">Retail-and-consumer-goods</a></li>
+                            </ul>
+                            <h3>Hire Us</h3>
+                            <ul>
+                                <li><a href="/hire us/techrealm2 - Serviceh1/index.html">Hire Dedicated Developers</a></li>
+                                <li><a href="/hire us/techrealm2 - Serviceh2/index.html">Hire-full-stack-web-developers</a></li>
+                                <li><a href="/hire us/techrealm2 - Serviceh3/index.html">Hire PHP Developers </a></li>
+                                <li><a href="/hire us/techrealm2 - Serviceh4/index.html">Hire Mobile Apps Developers</a></li>
+                                <li><a href="/hire us/techrealm2 - Serviceh5/">Hire Android Developers</a></li>
+                                <li><a href="/hire us/techrealm2 - Serviceh6/">Hire IOS Developers</a></li>
+                                <li><a href="/hire us/techrealm2 - Serviceh9/"></a></li>
+                                <li><a href="/hire us/techrealm2 - Serviceh7/">Hire Woocommerce Developers</a></li>
+                                <li><a href="/hire us/techrealm2 - Serviceh8/">Hire Shopify Developers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                    <li>
+                        <a href="/portfolio/folio.html">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="/contact/contact.html">Contact</a>
+                    </li>
+                    <li>
+                        <a href="/blog/blog.html">Blog</a>
+                    </li>
+                    <!-- Store Link -->
+                    <li>
+                        <a href="/tech store/index (10).html">Store</a>
+                    </li>
+                    <!-- Donation Link -->
+                    <li>
+                        <a href="/calcu/index.html">Donation</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        
-        <div class="dropdown-section">
-            <h3>Frameworks & Languages</h3>
-            <ul>
-                <li><a href="/technology/techrealm2 - Service35/index.html">PHP Frameworks</a></li>
-                <li><a href="/technology/techrealm2 - Service36/index.html">Laravel</a></li>
-                <li><a href="/technology/techrealm2 - Service37/index.html">Mean/Mern</a></li>
-                <li><a href="/technology/techrealm2 - Service38/index.html">Node.js</a></li>
-                <li><a href="/technology/techrealm2 - Service39/index.html">Python</a></li>
-            </ul>
-            <h3>Mobile Development</h3>
-            <ul>
-                <li><a href="/technology/techrealm2 - Service40/index.html">iPhone</a></li>
-                <li><a href="/technology/techrealm2 - Service41/index.html">Android</a></li>
-                <li><a href="/technology/techrealm2 - Service42/index.html">React Native</a></li>
-            </ul>
-        </div>
-        
-        <div class="dropdown-section">
-            <h3>Enterprise Solutions</h3>
-            <ul>
-                <li><a href="/technology/techrealm2 - Service43/index.html">MS Dynamics CRM</a></li>
-                <li><a href="/technology/techrealm2 - Service44/index.html">SharePoint</a></li>
-                <li><a href="/technology/techrealm2 - Service45/index.html">Microsoft Bot</a></li>
-            </ul>
-            <h3>Frontend Technologies</h3>
-            <ul>
-                <li><a href="/technology/techrealm2 - Service46/index.html">Graphics</a></li>
-                <li><a href="/technology/techrealm2 - Service47/index.html">React JS</a></li>
-                <li><a href="/technology/techrealm2 - Service49/index.html">Angular Js</a></li>
-    
-            </ul>
-        </div>
-        <div class="dropdown-section">
-            <h3>Industries
-            </h3>
-            <ul>
-                <li><a href="/technology/techrealm2 - Service51/index.html">E-commerce-solution</a></li>
-                <li><a href="/technology/techrealm2 - Service50/index.html">Real-estate</a></li>
-                <li><a href="/technology/techrealm2 - Service52/index.html">Retail-and-consumer-goods</a></li>
-            </ul>
-            <h3>Frontend Technologies</h3>
-            <ul>
-                <li><a href="/technology/techrealm2 - Service53/index.html">Health Care</a></li>
-                <li><a href="/technology/techrealm2 - Service54/index.html">Media and Entertainment</a></li>
-                <li><a href="/technology/techrealm2 - Service55/index.html">Logistics and Transportation</a></li>
-                <li><a href="/technology/techrealm2 - Service56/index.html">Travel & Tourism</a></li>
-            </ul>
-            
-        </div>
-        <div class="dropdown-section">
-            <ul>
-                <li><a href="/technology/techrealm2 - Service57/index.html"> Banking & Finance</a></li>
-                <li><a href="/technology/techrealm2 - Service58/index.html">Education & E-learning</a></li>
-                <li><a href="/technology/techrealm2 - Service52/index.html">Retail-and-consumer-goods</a></li>
-            </ul>
-            <h3>Hire Us</h3>
-            <ul>
-                <li><a href="/hire us/techrealm2 - Serviceh1/index.html">Hire Dedicated Developers</a></li>
-                <li><a href="/hire us/techrealm2 - Serviceh2/index.html">Hire-full-stack-web-developers</a></li>
-                <li><a href="/hire us/techrealm2 - Serviceh3/index.html">Hire PHP Developers </a></li>
-                    <li><a href="/hire us/techrealm2 - Serviceh4/index.html">   Hire Mobile Apps Developers
-                        </a></li>
-                        <li><a href="/hire us/techrealm2 - Serviceh5/">
-                            Hire Android Developers                           </a></li>
-                            <li><a href="/hire us/techrealm2 - Serviceh6/"> Hire IOS Developers  
-                                </a></li>
-                                 <li><a href="/hire us/techrealm2 - Serviceh9/">
-    
-                                    </a></li>
-                                     <li><a href="/hire us/techrealm2 - Serviceh7/">Hire Woocommerce Developers
-                                        </a></li>
-                                        <li><a href="/hire us/techrealm2 - Serviceh8/">Hire Shopify Developers
-                                            </a></li>
-    
-            </ul>
-            
+        <!-- Header Button -->
+        <div class="techrealm-cta-container">
+            <a href="https://wa.me/923461115757?text=Directly%20Contact%20our%20CEO%21" class="techrealm-button">Get a FREE Quote</a>
         </div>
     </div>
-    </li>
-                        <li>
-                            <a href="/portfolio/folio.html">Portfolio</a>
-                        </li>
-                        <li>
-                            <a href="/contact/contact.html">Contact</a>
-                        </li>
-                        <!-- <li>
-                            <a href="/legal-disclosure/index.html">Legal-disclosure</a>
-                        </li> -->
-                        <!-- <li>
-                            <a href="/invest/index.html">Invest</a>
-                        </li> -->
-                        <li>
-                            <a href="/blog/blog.html">Blog</a>
-                        </li>
+    
+    <!-- Mobile Header -->
+    <div class="techrealm-mobile-header">
+        <a href="./" class="techrealm-logo">
+            <h2 style="font-size:30px;">Tech<span style="color:rgb(78, 119, 253);">Realm</span></h2> 
+        </a>
+        <a href="#" class="techrealm-menu-toggle">
+            <i class="techrealm-toggle-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </i>
+        </a>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="techrealm-mobile-menu">
+        <nav class="techrealm-mobile-nav">
+            <ul class="mobile-menu-list">
+                <li class="current-menu-item">
+                    <a href="/index.html">Home</a>
+                </li>
+                <li class="mobile-has-children">
+                    <a href="/about/about.html">About Us <i class="fas fa-chevron-down"></i></a>
+                    <ul class="mobile-submenu">
+                        <li><a href="/legal-disclosure/index.html">Legal Disclosure</a></li>
+                        <li><a href="/invest/index.html">Invest</a></li>
                     </ul>
-                </nav>
-            </div>
-            <!-- Header Button -->
-            <div class="bringer-header-rp">
-                <a href="https://wa.me/923461115757?text=Directly%20Contact%20our%20CEO%21" class="bringer-button">Get a FREE Quote</a>
-            </div>
+                </li>
+                <li class="mobile-has-children">
+                    <a href="/services/service.html">Our Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="mobile-submenu">
+                        <li><a href="/services detail/techreaml-service1/index.html">Custom Software Development</a></li>
+                        <li><a href="/services detail/techrealm2 - service2/index.html">Enterprise Software Development</a></li>
+                        <li><a href="/services detail/techrealm2 - service3/index.html">Product Development</a></li>
+                        <li><a href="/services detail/techrealm2 - service4/index.html">Web Application Development</a></li>
+                        <li><a href="/services detail/techrealm2 - service5/index.html">Mobile Application Development</a></li>
+                        <li><a href="/services detail/techrealm2 - service6/index.html">Cloud Application Development</a></li>
+                        <li><a href="/services detail/techrealm2 - service7/index.html">Application Support</a></li>
+                        <li><a href="/services detail/techrealm2 - service10/index.html">Cloud Infrastructure</a></li>
+                        <li><a href="/services detail/techrealm2 - service19/index.html">Digital Marketing</a></li>
+                        <li><a href="/services detail/techrealm2 - service24/index.html">Digital Transformation</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-has-children">
+                    <a href="/services/service.html">Our Technologies <i class="fas fa-chevron-down"></i></a>
+                    <ul class="mobile-submenu">
+                        <li><a href="/technology/techrealm2 - Service28/index.html">Magento</a></li>
+                        <li><a href="/technology/techrealm2 - Service27/index.html">Shopify</a></li>
+                        <li><a href="/technology/techrealm2 - Service32/index.html">WordPress</a></li>
+                        <li><a href="/technology/techrealm2 - Service35/index.html">PHP Frameworks</a></li>
+                        <li><a href="/technology/techrealm2 - Service40/index.html">iPhone</a></li>
+                        <li><a href="/technology/techrealm2 - Service41/index.html">Android</a></li>
+                        <li><a href="/technology/techrealm2 - Service43/index.html">MS Dynamics CRM</a></li>
+                        <li><a href="/technology/techrealm2 - Service51/index.html">E-commerce-solution</a></li>
+                        <li><a href="/hire us/techrealm2 - Serviceh1/index.html">Hire Dedicated Developers</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/portfolio/folio.html">Portfolio</a>
+                </li>
+                <li>
+                    <a href="/contact/contact.html">Contact</a>
+                </li>
+                <li>
+                    <a href="/blog/blog.html">Blog</a>
+                </li>
+                <!-- Store Link for Mobile -->
+                <li>
+                    <a href="/tech store/index (10).html">Store</a>
+                </li>
+                <!-- Donation Link for Mobile -->
+                <li>
+                    <a href="/calcu/index.html">Donation</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="techrealm-mobile-cta">
+            <a href="https://wa.me/923461115757?text=Directly%20Contact%20our%20CEO%21" class="techrealm-button">Get a FREE Quote</a>
         </div>
-        <!-- Mobile Header -->
-        <div class="bringer-mobile-header-inner">
-            <a href="./" class="bringer-logo">
-                <h2 style="font-size:30px;">Tech<span style="color:rgb(78, 119, 253);">Realm</span></h2> 
-            </a>
-            <a href="#" class="bringer-mobile-menu-toggler">
-                <i class="bringer-menu-toggler-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </i>
-            </a>
-        </div>
-    </header>
+    </div>
+</header>
 
     <!-- Page Main -->
     <main id="bringer-main">
@@ -1287,5 +1661,47 @@
     <script src="js/st-core.js"></script>
     <script src="js/classes.js"></script>
     <script src="js/main.js"></script>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+   // Mobile menu toggle
+   const menuToggle = document.querySelector('.techrealm-menu-toggle');
+   const mobileMenu = document.querySelector('.techrealm-mobile-menu');
+   
+   if (menuToggle && mobileMenu) {
+       menuToggle.addEventListener('click', function(e) {
+           e.preventDefault();
+           this.classList.toggle('active');
+           mobileMenu.classList.toggle('active');
+       });
+   }
+   
+   // Mobile submenu toggles
+   const mobileDropdowns = document.querySelectorAll('.mobile-has-children > a');
+   
+   mobileDropdowns.forEach(dropdown => {
+       dropdown.addEventListener('click', function(e) {
+           e.preventDefault();
+           const parent = this.parentNode;
+           const submenu = parent.querySelector('.mobile-submenu');
+           
+           if (submenu) {
+               submenu.classList.toggle('active');
+               parent.classList.toggle('active');
+           }
+       });
+   });
+   
+   // Handle window resize
+   window.addEventListener('resize', function() {
+       if (window.innerWidth > 992) {
+           if (mobileMenu.classList.contains('active')) {
+               mobileMenu.classList.remove('active');
+               if (menuToggle) {
+                   menuToggle.classList.remove('active');
+               }
+           }
+       }
+   });
+});
+</script>
 </body></html>
